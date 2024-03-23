@@ -1,8 +1,15 @@
-import React from 'react';
+"use client";
+
+import { useEffect, useState } from 'react';
 
 const ProgressBar = ({ quantityToFund, quantityRaised }: { quantityToFund: number, quantityRaised: number }) => {
     // Calculate the percentage of progress
-    const progress = (quantityRaised / quantityToFund) * 100;
+    const [progress, setProgress] = useState((quantityRaised / quantityToFund * 100));
+
+    // useEffect(() => {
+    //     const timer = setTimeout(() => setProgress((quantityRaised / quantityToFund * 100)), 500)
+    //     return () => clearTimeout(timer)
+    // }, [])
 
     return (
         <div className='w-full flex items-center justify-between'>

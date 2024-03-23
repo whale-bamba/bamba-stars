@@ -11,11 +11,13 @@ export const creatorFundingData = [
             'ETH',
             'DAI',
         ],
-        imageNFT: 'https://picsum.photos/200/300',
+        imageNFT: 'https://picsum.photos/400/300',
         projectImages: [
-            'https://picsum.photos/200/300',
-            'https://picsum.photos/200/300',
-            'https://picsum.photos/200/300'
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300'
         ],
         pplFunding: [
             { name: 'John Doe', quantityInvested: 200 },
@@ -37,11 +39,13 @@ export const creatorFundingData = [
             'PINK',
             'USDT'
         ],
-        imageNFT: 'https://picsum.photos/200/300',
+        imageNFT: 'https://picsum.photos/400/300',
         projectImages: [
-            'https://picsum.photos/200/300',
-            'https://picsum.photos/200/300',
-            'https://picsum.photos/200/300'
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300'
         ],
         pplFunding: [
             { name: 'Emma Wilson', quantityInvested: 1500 },
@@ -62,11 +66,13 @@ export const creatorFundingData = [
             'ETH',
             'USDC',
         ],
-        imageNFT: 'https://picsum.photos/200/300',
+        imageNFT: 'https://picsum.photos/400/300',
         projectImages: [
-            'https://picsum.photos/200/300',
-            'https://picsum.photos/200/300',
-            'https://picsum.photos/200/300'
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300',
+            'https://picsum.photos/400/300'
         ],
         pplFunding: [
             { name: 'William Davis', quantityInvested: 1000 },

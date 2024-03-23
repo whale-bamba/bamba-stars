@@ -12,3 +12,8 @@ export type CreatorFundingType = {
     pplFunding: { name: string; quantityInvested: number }[];
     projectLinks: string[];
 };
+
+export type pplFundingType = {
+    name: string;
+    quantityInvested: number;
+};
