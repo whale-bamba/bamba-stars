@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <>
       <div className="flex items-center flex-col flex-grow pt-10 h-[200px]">
-        <div className="px-5 absolute">
+        <div className="absolute">
           <div className="bg-animation absolute">
               <div className="bg-animation-children"></div>
           </div>
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
               <span
               style={{
                   background:
-                  "linear-gradient(215deg, #FF00B3 34.37%, #EA00FF 49.63%, #3C00FF 62.38%)",
+                  "linear-gradient(215deg, #FFF200 34.37%, #DAA520 49.63%, #F4AF00 62.38%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
               }}

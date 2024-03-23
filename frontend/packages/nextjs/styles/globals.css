@@ -61,7 +61,7 @@ p {
 
 .bg-filter {
   -webkit-font-smoothing: antialiased;
-  background: #0f005a;
+  background: #524300;
 }
 
 .bg-animation {
@@ -71,8 +71,8 @@ p {
   left: 0;
   right: 0;
   background: rgba(2, 4, 9, 0.8);
-  filter: blur(170px);
-  opacity: 20%;
+  filter: blur(150px);
+  opacity: 30%;
   animation: moveBackground 8s linear infinite alternate;
 }
 
@@ -82,9 +82,9 @@ p {
   border-radius: 50%;
   background: linear-gradient(
     -45deg,
-    #ff00b3 20.09%,
-    #ea00ff 50.03%,
-    #3c00ff 83.03%
+    #FFF200 20.09%,
+    #DAA520 50.03%,
+    #F4AF00 83.03%
   );
   background-size: 400% 400%;
   animation: moveGradient 3s ease infinite;
