@@ -2,15 +2,16 @@
 
 // import Link from "next/link";
 import type { NextPage } from "next";
+import Link from "next/link";
 // import { Address } from "~~/components/scaffold-eth";
 
 const Projects: NextPage = () => {
 //   const { address: connectedAddress } = useAccount();
-
   return (
     <>
       <div className="text-center mt-8 bg-secondary p-10">
         <h1 className="text-4xl my-0">PROJECTS</h1>
+        <Link href="/">Home</Link>
         
       </div>
     </>
