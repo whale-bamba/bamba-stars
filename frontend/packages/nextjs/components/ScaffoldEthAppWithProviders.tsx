@@ -28,18 +28,12 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {pathname === '/frame' ? 
+      <div className={`flex flex-col min-h-screen ${pathname === '/' ? 'overflow-hidden bg-filter' : ''}`}>
+        <Header />
         <main className="relative flex flex-col flex-1">{children}</main>
-        :
-        <> 
-          <div className={`flex flex-col min-h-screen ${pathname === '/' ? 'overflow-hidden bg-filter' : ''}`}>
-            <Header />
-            <main className="relative flex flex-col flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Toaster />
-        </>
-      }
+        <Footer />
+      </div>
+      <Toaster />
     </>
   );
 };
