@@ -13,10 +13,12 @@ import { useNativeCurrencyPrice } from "~~/hooks/scaffold-eth";
 import { useGlobalState } from "~~/services/store/store";
 import { wagmiConfig } from "~~/services/web3/wagmiConfig";
 import { appChains } from "~~/services/web3/wagmiConnectors";
+import { usePathname } from 'next/navigation'
 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   const price = useNativeCurrencyPrice();
   const setNativeCurrencyPrice = useGlobalState(state => state.setNativeCurrencyPrice);
+  const pathname = usePathname()
 
   useEffect(() => {
     if (price > 0) {
@@ -26,7 +28,7 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <div className="flex flex-col min-h-screen">
+      <div className={`flex flex-col min-h-screen ${pathname === '/' ? 'overflow-hidden bg-filter' : ''}`}>
         <Header />
         <main className="relative flex flex-col flex-1">{children}</main>
         <Footer />
