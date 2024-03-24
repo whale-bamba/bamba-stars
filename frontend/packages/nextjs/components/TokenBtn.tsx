@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { parseEther } from "viem";
+import { useAccount } from "wagmi";
+import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 
 function handleClick() {
     console.log('Mint Token')
@@ -6,7 +9,21 @@ function handleClick() {
 
 export default function TokenBtn() {
 
-    const [mintAmount, setMintAmount] = useState(0)
+    const [mintAmount, setMintAmount] = useState(0);
+    const { address: connectedAddress } = useAccount();
+
+    const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
+        contractName: "PaymentToken",
+        functionName: "mint",
+
+
+        args: [connectedAddress, parseEther(String(mintAmount))],
+        blockConfirmations: 1,
+        value: 0,
+        onBlockConfirmation: (txnReceipt: any) => {
+          console.log("Transaction blockHash", txnReceipt.blockHash);
+        },
+      } as never);
 
     return (
 
@@ -19,9 +36,9 @@ export default function TokenBtn() {
             />
             <button
                 className="px-2 h-full bg-yellow-600 hover:bg-yellow-700 rounded-r-md py-1"
-                onClick={() => handleClick()}
+                onClick={() => writeAsync()}
             >
-                Mint Tokens
+                Mint USDC
             </button>
         </div>
 
