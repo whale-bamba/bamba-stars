@@ -83,7 +83,7 @@ export const creatorFundingData = [
     },
 
     {
-        id: 0,
+        id: 4,
         creatorName: 'Jane Smith',
         projectName: 'Artistic Endeavor',
         projectDescription: 'Embark on a journey through the artist\'s imagination with this captivating project. Delve into the depths of creativity and explore a world where colors dance and shapes intertwine.',
@@ -110,7 +110,7 @@ export const creatorFundingData = [
         projectLinks: ['https://www.artisticendeavor.com', 'https://www.instagram.com/artisticendeavor']
     },
     {
-        id: 1,
+        id: 5,
         creatorName: 'David Lee',
         projectName: 'Tech Innovation',
         projectDescription: 'Join me on the frontier of technological advancement with this groundbreaking project. Together, we can push the boundaries of what is possible and shape the future.',
@@ -138,7 +138,7 @@ export const creatorFundingData = [
         projectLinks: ['https://www.artisticendeavor.com', 'https://www.instagram.com/artisticendeavor']
     },
     {
-        id: 2,
+        id: 6,
         creatorName: 'Sophia Chen',
         projectName: 'Green Initiative',
         projectDescription: 'Take a step towards a sustainable future with this eco-friendly project. Let\'s work together to protect our planet and preserve it for generations to come.',
@@ -166,7 +166,7 @@ export const creatorFundingData = [
     },
 
     {
-        id: 0,
+        id: 7,
         creatorName: 'Jane Smith',
         projectName: 'Artistic Endeavor',
         projectDescription: 'Embark on a journey through the artist\'s imagination with this captivating project. Delve into the depths of creativity and explore a world where colors dance and shapes intertwine.',
@@ -193,7 +193,7 @@ export const creatorFundingData = [
         projectLinks: ['https://www.artisticendeavor.com', 'https://www.instagram.com/artisticendeavor']
     },
     {
-        id: 1,
+        id: 8,
         creatorName: 'David Lee',
         projectName: 'Tech Innovation',
         projectDescription: 'Join me on the frontier of technological advancement with this groundbreaking project. Together, we can push the boundaries of what is possible and shape the future.',
@@ -221,7 +221,7 @@ export const creatorFundingData = [
         projectLinks: ['https://www.artisticendeavor.com', 'https://www.instagram.com/artisticendeavor']
     },
     {
-        id: 2,
+        id: 9,
         creatorName: 'Sophia Chen',
         projectName: 'Green Initiative',
         projectDescription: 'Take a step towards a sustainable future with this eco-friendly project. Let\'s work together to protect our planet and preserve it for generations to come.',
