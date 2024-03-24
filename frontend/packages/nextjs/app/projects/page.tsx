@@ -10,10 +10,23 @@ import { creatorFundingData } from "~~/utils/mock";
 import { CreatorFundingType } from "~~/utils/type";
 import { CardProject } from "~~/components/CardProject";
 import { useRouter } from 'next/router';
+import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 
 
 const Projects: NextPage = () => {
   //   const { address: connectedAddress } = useAccount();
+
+  const {data: counter} = useScaffoldContractRead({
+      contractName: "BambaStars",
+      functionName: "counter",
+      args: [],
+  } as never);
+
+  let numberProjects = Number(counter) + 1 ? Number(counter) +1: 0;
+
+  console.log("numberProjects", numberProjects);
+  //repeat creatorFunding with size of numberProjects
+  
 
   return (
     <div className='w-[100%] h-[100%]'>

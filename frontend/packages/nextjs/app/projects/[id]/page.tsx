@@ -52,14 +52,6 @@ export default function ProjectDetails({ params }: any) {
             args: [id],
         } as never);
 
-        externalContracts[534351][depositAccount] = {
-            address: depositAccount,
-            abi: StarAccountAbi
-        }
-        externalContracts[534351][badgesCollection] = {
-            address: badgesCollection,
-            abi: BadgeCollectionAbi
-        }
 
         const {data: projectName} = useContractRead({
             address: depositAccount,
@@ -198,9 +190,10 @@ export default function ProjectDetails({ params }: any) {
                             <div className="flex items-center justify-center flex-col py-4 my-2">
                                 {/* <h2 className="font-semibold text-3xl py-2">Withdraw Milestones</h2> */}
                                 <div className="flex items-center justify-center">
-                                    <AproveBtn />
+                                    <AproveBtn 
+                                    id={id}/>
                                     {/* <MdArrowRight className="mx-1" /> */}
-                                    <InvestBtn />
+                                    <InvestBtn id={id}/>
                                 </div>
                             </div>
 

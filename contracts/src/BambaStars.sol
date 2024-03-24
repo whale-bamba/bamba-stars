@@ -23,7 +23,7 @@ contract BambaStars is ERC721, Ownable {
     mapping(uint256 => address) public starsAccounts;
     mapping(uint256 => address) public badgesCollections;
 
-    uint256 counter;
+    uint256 public counter;
 
     event Minted(uint256 tokenId, address badgeCollection, address starAccount);
 

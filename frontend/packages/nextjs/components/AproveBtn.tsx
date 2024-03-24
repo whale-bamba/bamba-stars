@@ -1,25 +1,32 @@
 import { useState } from "react"
-// import { parseEther } from "viem";
-// import { useAccount } from "wagmi";
-// import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { parseEther } from "viem";
+import { useAccount, useContractWrite } from "wagmi";
+import { MockERC20Abi } from "~~/contracts/artifacts/MockERC20";
+import { StarAccountAbi } from "~~/contracts/artifacts/StarAccount";
+import { useScaffoldContractRead, useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import { PaymentTokenAddress } from "~~/utils/addresses";
 
-export default function AproveBtn() {
+export default function AproveBtn({id}: any) {
+
+
 
     const [aproveAmount, setAproveAmount] = useState(0);
-    // const { address: connectedAddress } = useAccount();
+    const { address: connectedAddress } = useAccount();
 
-    // const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
-    //     contractName: "PaymentToken",
-    //     functionName: "mint",
+    const {data: depositAccount} = useScaffoldContractRead({
+        contractName: "BambaStars",
+        functionName: "starsAccounts",
+        args: [id],
+    } as never);
 
+    console.log("depositAccount", depositAccount);
 
-    //     args: [connectedAddress, parseEther(String(aproveAmount))],
-    //     blockConfirmations: 1,
-    //     value: 0,
-    //     onBlockConfirmation: (txnReceipt: any) => {
-    //       console.log("Transaction blockHash", txnReceipt.blockHash);
-    //     },
-    //   } as never);
+    const {data, isLoading, isSuccess, write} = useContractWrite({
+        address: PaymentTokenAddress,
+        abi: MockERC20Abi,
+        functionName: "approve",
+        args: [depositAccount, parseEther(String(aproveAmount*100000000))],
+    });
 
     return (
 
@@ -32,7 +39,7 @@ export default function AproveBtn() {
             />
             <button
                 className="px-2 h-full bg-yellow-600 hover:bg-yellow-700 rounded-r-md py-1"
-                // onClick={() => writeAsync()}
+                onClick={() => write()}
             >
                 Approve Invest
             </button>
