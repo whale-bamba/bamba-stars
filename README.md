@@ -37,13 +37,23 @@ One of the most common problems encountered when considering raising money throu
 
 [Backend Folder](https://github.com/whale-bamba/bamba-stars/tree/main/backend)
 
+
+
 - *Project Demo and Presentation:*
 
 [Demo Link]((https://block-estate-24.netlify.app/))
 
 [Demo Video](https://youtu.be/c9ABWxw0NMA)
 
-[Presentation Link](https://www.canva.com/design/DAF-UOG3CTI/xsD5543tz1ZZ0fL8KqCybA/edit?utm_content=DAF-UOG3CTI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+[Presentation Demo](https://www.canva.com/design/DAGALWfqehw/EiDCgHLSLmAqhMq1OoG_Ng/edit?utm_content=DAGALWfqehw&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+[Bamba Frame Deploy](https://bamba-stars-user.vercel.app/api)
+
+[Frame Project](https://frame-project.vercel.app/api)
+
+Try it out on Farcaster !!
+[Frame Farcaster Link](https://warpcast.com/~/developers/frames)
+
 
 - *Business:*
 
