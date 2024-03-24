@@ -8,6 +8,14 @@ import { CreatorFundingType } from "~~/utils/type"
 import FansList from "~~/components/FansList";
 import ProgressBar from "~~/components/ProgressBar";
 import Link from "next/link";
+import { useScaffoldContractRead } from "~~/hooks/scaffold-eth";
+import externalContracts from "~~/contracts/externalContracts";
+import { StarAccountAbi } from "~~/contracts/artifacts/StarAccount";
+import { BadgeCollectionAbi } from "~~/contracts/artifacts/BadgeCollection";
+import { useAccount } from "wagmi";
+import { Address } from "~~/components/scaffold-eth";
+import { useContractRead } from 'wagmi';
+
 
 export default function ProjectDetails({ params }: any) {
 
@@ -15,10 +23,80 @@ export default function ProjectDetails({ params }: any) {
     const [project, setProject] = useState<CreatorFundingType | null>(null)
     const [loading, setLoading] = useState<boolean>(true);
 
+    //const [depositAccount, setDepositAccount] = useState<string>('');
+    //const [badgesCollection, setBadgesCollection] = useState<string>('');
+    //const [projectName, setProjectName] = useState<string>('');
+    //const [pricePerToken, setPricePerToken] = useState<number>(0);
+
+    const {address: connectedAddress} = useAccount();
+
+    const {data: creatorAddress} = useScaffoldContractRead({
+        contractName: "BambaStars",
+        functionName: "ownerOf",
+        args: [id],
+    } as never);
+
+        const {data: depositAccount} = useScaffoldContractRead({
+            contractName: "BambaStars",
+            functionName: "starsAccounts",
+            args: [id],
+        } as never);
+
+        const {data: badgesCollection} = useScaffoldContractRead({
+            contractName: "BambaStars",
+            functionName: "badgesCollections",
+            args: [id],
+        } as never);
+
+        externalContracts[534351][depositAccount] = {
+            address: depositAccount,
+            abi: StarAccountAbi
+        }
+        externalContracts[534351][badgesCollection] = {
+            address: badgesCollection,
+            abi: BadgeCollectionAbi
+        }
+
+        const {data: projectName} = useContractRead({
+            address: depositAccount,
+            abi: StarAccountAbi,
+            functionName: "name",
+        });
+
+        const {data: pricePerToken} = useContractRead({
+            address: depositAccount,
+            abi: StarAccountAbi,
+            functionName: "pricePerToken"
+        });
+
+        const {data:totalSupply} = useContractRead({
+            address: depositAccount,
+            abi: StarAccountAbi,
+            functionName: "totalSupply"
+        })
+
+        const {data: targetSupply} = useContractRead({
+            address: depositAccount,
+            abi: StarAccountAbi,
+            functionName: "targetTotalSupply"
+        });
+
+        const {data: imageNFT} = useScaffoldContractRead({
+            contractName: "BambaStars",
+            functionName: "images",
+            args: [id],
+        } as never);
+
+        console.log("totalSupply", totalSupply);
+
+
+
     async function fetchFundingData() {
         try {
             const project = creatorFundingData.find((project) => project.id === parseInt(id))
             setProject(project || null)
+
+
         } catch (error) {
             console.error("There was an error fetching the data:", error);
         } finally {
@@ -43,8 +121,8 @@ export default function ProjectDetails({ params }: any) {
 
                     <div className="flex flex-row pb-6 space-x-4 mt-2">
                         <div className="flex-1 flex flex-row items-center">
-                            <h1 className="text-2xl font-semibold">{project.projectName}</h1>
-                            <div className="mx-6 text-sm text-primary-600 border-[1px] border-primary-600 py-1 px-3 rounded-full">Creator: {project.creatorName}</div>
+                            <h1 className="text-2xl font-semibold">{String(projectName)}</h1>
+                            <div className="mx-6 text-sm text-primary-600 border-[1px] border-primary-600 py-1 px-3 rounded-full">Creator: <Address address={creatorAddress} /></div>
                         </div>
                         {/* make as component */}
                         <button
@@ -64,7 +142,7 @@ export default function ProjectDetails({ params }: any) {
                     {/* Photo Section, where are the pictures of the project */}
 
                     {/* <PhotoSection pictures={project.projectImages} loading={loading} /> */}
-                    <img className="w-full" src={project.projectImages[0]} alt={project.projectName} />
+                    <img className="w-full" src={project.projectImages[0]} alt={String(projectName)} />
 
                     {/* Region with Description and Reserve Section */}
 
@@ -73,19 +151,22 @@ export default function ProjectDetails({ params }: any) {
                             {/* <FundraiserSection id={propertyId} price={project.price} raised={project.raised} totalTokens={project.totalTokens} status={project.status} holders={project.holders} loading={loading} /> */}
                             <div className="w-full flex flex-row items-end justify-between">
                                 <div className="flex flex-row items-end">
-                                    <p className="text-5xl font-semibold">${project.quantityRaised}</p>
+                                    <p className="text-5xl font-semibold">${Number(totalSupply)}</p>
                                     {/* <p className="text-xl ml-4">{numHolders} Holder{numHolders !== 1 ? 's' : ''}</p> */}
                                 </div>
-                                <p className="text-2xl font-semibold">{(project.quantityRaised / project.quantityToFund * 100).toFixed(2)}% of ${project.quantityToFund} goal</p>
+                                <p className="text-2xl font-semibold">{(Number(totalSupply) / (Number(targetSupply) + 0.00001) * 100).toFixed(2)}% of ${Number(targetSupply)} goal</p>
                             </div>
                             <div className="w-full mb-4">
-                                <ProgressBar quantityToFund={project.quantityToFund} quantityRaised={project.quantityRaised} />
+                                <ProgressBar quantityToFund={Number(targetSupply)} quantityRaised={Number(totalSupply)} />
                             </div>
 
                             <div className="">
                                 <h2 className="text-xl font-semibold">Description</h2>
+                                <p className="mt-4">Deposit Account <Address address={depositAccount}/></p>
+                                <p className="mt-4">Badge Collection <Address address={badgesCollection}/></p>
                                 <p className="mt-4">{project.projectDescription}</p>
                             </div>
+
                             <div className="">
                                 <h2 className="text-xl font-semibold">Motivation</h2>
                                 <p className="mt-4">{project.motivation}</p>
