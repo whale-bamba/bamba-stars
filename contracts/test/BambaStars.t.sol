@@ -63,8 +63,6 @@ contract BamaStarsTest is Test {
         paymentToken.mint(address(this), 100 ether);
         console.log("USD Balance:", paymentToken.balanceOf(address(this)));
         paymentToken.approve(address(bambaStars.starsAccounts(tokenId)), 100 ether);
-        
-        console.log("test", StarAccount(payable(bambaStars.starsAccounts(tokenId))).return2());
 
         console.log("allowance", StarAccount(payable(bambaStars.starsAccounts(tokenId))).allowance(address(this), address(bambaStars.starsAccounts(tokenId))));
         StarAccount(payable(bambaStars.starsAccounts(tokenId))).buyTokens(50 ether, address(address(this)));
