@@ -40,10 +40,7 @@ const Projects: NextPage = () => {
             ))}
         </div>
         {/* <div className='h-[500px] w-full'></div> */}
-<<<<<<< lastOlafCommit
 
-=======
->>>>>>> main
       </div>
     </div>
   );
