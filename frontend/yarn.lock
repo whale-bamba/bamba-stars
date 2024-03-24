@@ -3609,12 +3609,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/next@npm:4.0.15":
-  version: 4.0.15
-  resolution: "@vercel/next@npm:4.0.15"
-  dependencies:
-    "@vercel/nft": 0.24.2
-  checksum: 390e67884b95742ddf8a1cdf7db08455f498053c110c70839c26d72aa75fdf29059ffdaa325268b8e5d5214ff3af776240dde9ccffb4d5283fa5f5e43ace2375
 "@vercel/hydrogen@npm:1.0.2":
   version: 1.0.2
   resolution: "@vercel/hydrogen@npm:1.0.2"
@@ -3664,9 +3658,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/node@npm:3.0.12":
-  version: 3.0.12
-  resolution: "@vercel/node@npm:3.0.12"
 "@vercel/nft@npm:0.26.4":
   version: 0.26.4
   resolution: "@vercel/nft@npm:0.26.4"
@@ -3743,7 +3734,6 @@ __metadata:
   checksum: 934eb4a306a3b56933c430a70fbcc1cd125feb044064fa727c3bf0ed91a2bdbbc59cef847305a42ef3bfa5f0434dcf09e9d15662acdb8ab0083c0e8dc44b8aef
   languageName: node
   linkType: hard
-
 
 "@vercel/og@npm:^0.6.2, @vercel/og@npm:~0.6.2":
   version: 0.6.2
@@ -12800,7 +12790,6 @@ __metadata:
     hono: ^4.1.3
     husky: ^8.0.1
     lint-staged: ^13.0.3
-    react-icons: ^5.0.1
     next: latest
     postcss: ^8.4.38
     react: latest
