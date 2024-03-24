@@ -45,13 +45,21 @@ One of the most common problems encountered when considering raising money throu
 
 [Presentation Link](https://www.canva.com/design/DAF-UOG3CTI/xsD5543tz1ZZ0fL8KqCybA/edit?utm_content=DAF-UOG3CTI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
-- *Technical Architecture:*
+- *Business:*
 
-![Project Photo](frontend/src/assets/Architecture.png)
+![Project Photo](frontend/packages/nextjs/public/buss.png)
 
-- *Business Flow:*
+- *Platform Home Screeshot:*
 
-![Project Photo](frontend/src/assets/BusinessFlow.png)
+![Project Photo](frontend/packages/nextjs/public/home.jpg)
+
+- *Platform Projects Screeshot:*
+
+![Project Photo](frontend/packages/nextjs/public/projects.jpg)
+
+- *Platform Details Screeshot:*
+
+![Project Photo](frontend/packages/nextjs/public/projectDeta.jpg)
 
 - *Project Logo:*
 
@@ -60,12 +68,12 @@ One of the most common problems encountered when considering raising money throu
 
 ### Addresses
 
-- BambaStars deployed at:  0x5F1933923909C6a65a6769fA0d6F157857e33c48
-- Payment Token deployed at:  0x9d8F28B52504112A8C89df9095ca3BF346286787
-- ERC6551Registry deployed at:  0x9586FA0a7B039531411ceAD42616c7751Ceec296
-- BadgeCollection implementation deployed at:  0x64e8C6db52bC99c39d7c2DEB0F9CD52848a5772b
-- Beacon deployed at:  0xa14C098C96201B303c6FC4F7aA78F4e422e05D54
-- StarAccount implementation deployed at:  0x74Bb711D032B5Df4F63dc04EA4422807D768aC08
+- BambaStars deployed at:  [0x5F1933923909C6a65a6769fA0d6F157857e33c48](https://sepolia.scrollscan.com/address/0x5F1933923909C6a65a6769fA0d6F157857e33c48)
+- Payment Token deployed at:  [0x9d8F28B52504112A8C89df9095ca3BF346286787](https://sepolia.scrollscan.com/address/0x9d8F28B52504112A8C89df9095ca3BF346286787)
+- ERC6551Registry deployed at:  [0x9586FA0a7B039531411ceAD42616c7751Ceec296](https://sepolia.scrollscan.com/address/0x9586FA0a7B039531411ceAD42616c7751Ceec296)
+- BadgeCollection implementation deployed at:  [0x64e8C6db52bC99c39d7c2DEB0F9CD52848a5772b](https://sepolia.scrollscan.com/address/0x64e8C6db52bC99c39d7c2DEB0F9CD52848a5772b)
+- Beacon deployed at:  [0xa14C098C96201B303c6FC4F7aA78F4e422e05D54](https://sepolia.scrollscan.com/address/0xa14C098C96201B303c6FC4F7aA78F4e422e05D54)
+- StarAccount implementation deployed at:  [0x74Bb711D032B5Df4F63dc04EA4422807D768aC08](https://sepolia.scrollscan.com/address/0x74Bb711D032B5Df4F63dc04EA4422807D768aC08)
 
 
 
