@@ -2,12 +2,15 @@
 
 import { PhotoSection } from "~~/components/PhotoSection"
 import { creatorFundingData } from "~~/utils/mock"
-import { MdShare, MdFavorite, MdStar, MdCurrencyBitcoin } from "react-icons/md"
+import { MdShare, MdFavorite, MdStar, MdCurrencyBitcoin, MdArrowRight } from "react-icons/md"
 import { useEffect, useState } from "react"
 import { CreatorFundingType } from "~~/utils/type"
 import FansList from "~~/components/FansList";
 import ProgressBar from "~~/components/ProgressBar";
 import Link from "next/link";
+import WithdrawBtn from "~~/components/WithdrawBtn";
+import AproveBtn from "~~/components/AproveBtn";
+import InvestBtn from "~~/components/InvestBtn";
 
 export default function ProjectDetails({ params }: any) {
 
@@ -98,6 +101,27 @@ export default function ProjectDetails({ params }: any) {
                                     ))}
                                 </div>
                             </div>
+
+                            <div className="flex items-center justify-center flex-col py-4 my-2">
+                                <h2 className="font-semibold text-3xl py-2">Withdraw Milestones</h2>
+                                <div className="flex items-center justify-center">
+                                    <WithdrawBtn milestoneNum={1} />
+                                    <MdArrowRight className="mx-1" />
+                                    <WithdrawBtn milestoneNum={2} />
+                                    <MdArrowRight className="mx-1" />
+                                    <WithdrawBtn milestoneNum={3} />
+                                </div>
+                            </div>
+
+                            <div className="flex items-center justify-center flex-col py-4 my-2">
+                                {/* <h2 className="font-semibold text-3xl py-2">Withdraw Milestones</h2> */}
+                                <div className="flex items-center justify-center">
+                                    <AproveBtn />
+                                    {/* <MdArrowRight className="mx-1" /> */}
+                                    <InvestBtn />
+                                </div>
+                            </div>
+
                         </div>
                         {/* separation bar */}
                         <div className="hidden md:block w-[1px] bg-gray-300 h-[80%]"></div>
