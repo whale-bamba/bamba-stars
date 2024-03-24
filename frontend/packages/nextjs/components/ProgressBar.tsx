@@ -13,9 +13,9 @@ const ProgressBar = ({ quantityToFund, quantityRaised }: { quantityToFund: numbe
 
     return (
         <div className='w-full flex items-center justify-between'>
-            <div className="w-[100%] h-4 bg-gray-200 rounded-full overflow-hidden border-blue-500 border-2">
+            <div className="w-[100%] h-4 bg-gray-200 rounded-full overflow-hidden border-yellow-500 border-2">
                 <div
-                    className="h-full bg-blue-500"
+                    className="h-full bg-yellow-500"
                     style={{ width: `${progress}%` }}
                 ></div>
                 {/* <div className="absolute inset-0 flex items-center justify-center text-white text-sm font-bold">
