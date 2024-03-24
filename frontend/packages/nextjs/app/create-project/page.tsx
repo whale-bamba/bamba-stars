@@ -1,13 +1,15 @@
 "use client";
 
 import React, { useState } from 'react';
+import { parseEther } from 'viem';
 import Forms1 from '~~/components/Forms1';
 import Forms2 from '~~/components/Forms2';
+import { useScaffoldContractWrite } from '~~/hooks/scaffold-eth';
+import { PaymentTokenAddress } from '~~/utils/addresses';
 
 
 interface Modules {
     id: number;
-    quantityToFund: string;
     link: string;
     details: string;
 }
@@ -19,50 +21,21 @@ const CreateProject = () => {
     const [creatorName, setcreatorName] = React.useState('');
     const [projectName, setprojectName] = React.useState('');
     const [projectDescription, setprojectDescription] = React.useState('');
-    const [motivation, setmotivation] = React.useState('');
-    const [quantityToFund, setQuantityToFund] = React.useState('');
-    const [currency, setCurrency] = React.useState('');
     const [imageNFT, setImageNFT] = React.useState('');
-    const [projectImages, setProjectImages] = React.useState([] as string[]);
-    const [projectLinks, setProjectLinks] = React.useState([] as string[]);
 
-    // const [modules, setModules] = React.useState<Modules[]>([]);
-    // const [inputTitle, setInputTitle] = React.useState('');
-    // const [inputLink, setInputLink] = React.useState('');
-    // const [inputDetails, setInputDetails] = React.useState('');
+    const [pricePerToken, setPricePerToken] = React.useState(0);
+    const [totalSupply, setTotalSupply] = React.useState(0);
+
+
     const [loading, setLoading] = React.useState(false);
 
     const [formData, setFormData] = useState({
         creatorName: '',
         projectName: '',
         projectDescription: '',
-        motivation: '',
-        quantityToFund: '',
-        currency: '',
-        imageNFT: '',
-        projectImages: [] as string[],
-        projectLinks: [] as string[],
+        imageNFT: ''
     });
 
-    // const handleAddModule = () => {
-    //     if (inputTitle.trim() !== '' && inputLink.trim() !== '' && inputDetails.trim() !== '') {
-    //         const newModule: Modules = {
-    //             id: Date.now(),
-    //             quantityToFund: inputTitle,
-    //             link: inputLink,
-    //             details: inputDetails
-    //         };
-
-    //         setModules([...modules, newModule]);
-    //         setInputTitle('');
-    //         setInputLink('');
-    //         setInputDetails('');
-    //     }
-    // };
-
-    // const handleDeleteModule = (id: number) => {
-    //     setModules(modules.filter(module => module.id !== id));
-    // };
 
     const handleNext = () => {
         setStep(step + 1);
@@ -72,40 +45,26 @@ const CreateProject = () => {
         setStep(step - 1);
     };
 
-    // const handleChange = (e: any) => {
-    //     const { name, value } = e.target;
-    //     setFormData({
-    //         ...formData,
-    //         [name]: value,
-    //     });
-    // };
+    console.log("project name", projectName);
+    console.log("creator name", projectName);
+    console.log("project price", pricePerToken);
+    console.log("payment token", PaymentTokenAddress);
+    console.log("total supply", totalSupply);
+    console.log("image link", imageNFT);
 
-    function handleSubmit() {
+    const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
+        contractName: "BambaStars",
+        functionName: "mint",
+        
 
-        const body = {
-            "creatorName": creatorName,
-            "projectName": projectName,
-            "projectDescription": projectDescription,
-            "motivation": motivation,
-            "quantityToFund": quantityToFund,
-            "currency": currency,
-            "imageNFT": imageNFT,
-            "projectImages": projectImages,
-            "projectLinks": projectLinks,
-        }
+        args: [projectName, projectName, parseEther(String(pricePerToken)), PaymentTokenAddress, parseEther(String(totalSupply)),  parseEther("10"), parseEther("15"), imageNFT],
+        blockConfirmations: 1,
+        value: 0,
+        onBlockConfirmation: (txnReceipt: any) => {
+          console.log("Transaction blockHash", txnReceipt.blockHash);
+        },
+      } as never);
 
-        console.log(body);
-
-        // const url = '';
-        // axios.post(url, body)
-        // .then(async (response: any) => {
-
-        //     console.log(response);})
-        // .catch((data: any) => {
-        //     window.alert("Error")
-        //     console.log(data);
-        // });
-    }
 
     return (
         <div className="flex items-center justify-center h-screen">
@@ -135,28 +94,14 @@ const CreateProject = () => {
                         setprojectName={setprojectName}
                         projectDescription={projectDescription}
                         setprojectDescription={setprojectDescription}
-                        motivation={motivation}
-                        setmotivation={setmotivation}
                     /> :
                     <Forms2
-                        quantityToFund={quantityToFund}
-                        setQuantityToFund={setQuantityToFund}
-                        currency={currency}
-                        setCurrency={setCurrency}
+                        totalSupply={totalSupply}
+                        setTotalSupply={setTotalSupply}
+                        pricePerToken={pricePerToken}
+                        setPricePerToken={setPricePerToken}
                         imageNFT={imageNFT}
                         setImageNFT={setImageNFT}
-                        projectImages={projectImages}
-                        setProjectImages={setProjectImages}
-                        projectLinks={projectLinks}
-                        setProjectLinks={setProjectLinks}
-                        // modules={modules}
-                        // setModules={setModules}
-                        // inputLink={inputLink}
-                        // setInputLink={setInputLink}
-                        // inputDetails={inputDetails}
-                        // setInputDetails={setInputDetails}
-                        // handleAddModule={handleAddModule}
-                        // handleDeleteModule={handleDeleteModule}
                     />
                 }
                 <div className="flex justify-between mt-6">
@@ -170,7 +115,7 @@ const CreateProject = () => {
                             </button>
                             <button
                                 className="bg-yellow-500 px-6 py-1.5 rounded-lg text-white hover:bg-secondary-color"
-                                onClick={handleSubmit}
+                                onClick={() => writeAsync()}
                             >
                                 Submit
 

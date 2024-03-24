@@ -7,7 +7,7 @@ export default function Forms1(props: any) {
 
                 <div className="mb-4">
                     <label className="block font-medium mb-2 text-gray-700" htmlFor="name">
-                        Star Name
+                        Creator Name
                     </label>
                     <input
                         type="text"
@@ -44,20 +44,6 @@ export default function Forms1(props: any) {
                         placeholder='Embark on a journey through...'
                         value={props.projectDescription}
                         onChange={(e) => props.setprojectDescription(e.target.value)}
-                        className="w-full border bg-[white] border-primary-color p-2"
-                    />
-                </div>
-                <div className="mb-4">
-                    <label className="block font-medium mb-2 text-gray-700" htmlFor="motivation">
-                        Motivation
-                    </label>
-                    <input
-                        type="text"
-                        id="motivation"
-                        name="motivation"
-                        placeholder='I am driven by...'
-                        value={props.motivation}
-                        onChange={(e) => props.setmotivation(e.target.value)}
                         className="w-full border bg-[white] border-primary-color p-2"
                     />
                 </div>
