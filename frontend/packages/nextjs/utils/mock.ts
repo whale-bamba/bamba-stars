@@ -1,6 +1,6 @@
 export const creatorFundingData = [
     {
-        id: 1,
+        id: 0,
         creatorName: 'Jane Smith',
         projectName: 'Artistic Endeavor',
         projectDescription: 'Embark on a journey through the artist\'s imagination with this captivating project. Delve into the depths of creativity and explore a world where colors dance and shapes intertwine.',

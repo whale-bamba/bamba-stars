@@ -24,6 +24,6 @@ const externalContracts = {
             abi: MockERC20Abi
         }
     }
-} as const;
+} as any;
 
 export default externalContracts;
