@@ -32,9 +32,29 @@ const Home: NextPage = () => {
               </span>
           </h1>
           <span className="text-[#CCCBCB] text-lg leading-8 md:w-7/12 text-center mt-5 mb-2 px-4 md:px-0">
-              with fundings from your own fans{" "}
+              with fundings from your own <span
+              style={{
+                  background:
+                  "linear-gradient(215deg, #FFF200 34.37%, #DAA520 49.63%, #F4AF00 62.38%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+              }}
+              >
+              fans{" "}
+              </span>
+               and{" "}
+              <span
+              style={{
+                  background:
+                  "linear-gradient(215deg, #FFF200 34.37%, #DAA520 49.63%, #F4AF00 62.38%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+              }}
+              >
+              followers
+              </span>{" "}
           </span>
-          <div className="flex items-center gap-4 flex-col md:flex-row">
+          {/* <div className="flex items-center gap-4 flex-col md:flex-row">
               <Link href="https://app.firethree.xyz" target="_blank">
               <button className="text-lg text-white bg-white/10 h-[50px] px-20 md:px-28 mt-5 rounded-xl border border-white/30 hover:opacity-80 transition-all">
                   Launch App
@@ -45,7 +65,7 @@ const Home: NextPage = () => {
               target="_blank"
               >
               </Link>
-          </div>
+          </div> */}
           </div>
 
           <div className="flex flex-col pt-36">
