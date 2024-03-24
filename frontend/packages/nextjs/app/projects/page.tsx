@@ -2,6 +2,7 @@
 
 // import Link from "next/link";
 import type { NextPage } from "next";
+import Link from "next/link";
 // import { Address } from "~~/components/scaffold-eth";
 
 import { useEffect } from "react";
@@ -39,6 +40,7 @@ const Projects: NextPage = () => {
             ))}
         </div>
         {/* <div className='h-[500px] w-full'></div> */}
+
       </div>
     </div>
   );
