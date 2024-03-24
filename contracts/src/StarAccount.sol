@@ -83,10 +83,6 @@ contract StarAccount is IERC165, IERC1271, IERC6551Account, ERC20Upgradeable {
         return symbolUpdated;
     }
 
-
-
-
-
     function setBadgeCollection(address _badgeCollection) public {
         require(_isValidSigner(_msgSender()), "Invalid signer");
         badgeCollection = BadgeCollection(_badgeCollection);
