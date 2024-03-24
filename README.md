@@ -29,7 +29,9 @@ One of the most common problems encountered when considering raising money throu
 
 [Smart Contracts Folder](https://github.com/whale-bamba/bamba-stars/tree/main/contracts)
 
-[Frames Folder](https://github.com/whale-bamba/bamba-stars/tree/main/frame)
+[Frame User Folder](https://github.com/whale-bamba/bamba-stars/tree/main/frame-user)
+
+[Frame Project Folder](https://github.com/whale-bamba/bamba-stars/tree/main/frame-project)
 
 [Frontend Repo](https://github.com/whale-bamba/bamba-stars/tree/main/frontend)
 
